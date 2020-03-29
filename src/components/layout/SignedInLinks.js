@@ -4,11 +4,14 @@ import {connect} from 'react-redux';
 import {signOut} from '../../store/actions/authActions'
 
 const SignedInLinks = (props) => {
+    // console.log(props) // profile is empty here
     return (
         <ul className="right">
             <li><NavLink to="/create">New Project</NavLink></li>
             <li><a onClick={props.signOut} >Log out</a></li>
-            <li><NavLink to="/" className="btn btn-floating pink lighten-1">PM</NavLink></li>
+            <li><NavLink to="/" className="btn btn-floating pink lighten-1">
+                {props.profile.initials}
+            </NavLink></li>
         </ul>
     );
 };
